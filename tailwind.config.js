@@ -13,6 +13,9 @@ module.exports = {
        },
        width: {
         'med-1': '32%'
+       },
+       height: {
+        'wrapper-height': '90%'
        }
     },
   },
