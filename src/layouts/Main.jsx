@@ -31,7 +31,7 @@ export default function Main() {
 
 const MobileViev = () => {
     return (
-        <main className="ml-5 w-4/5 flex justify-around gap-4 flex-wrap md:w-full md:gap-1 md:ml-0">
+        <main className="md:flex md:flex-wrap md:w-full md:gap-1 md:ml-0">
             <HabitsCard />
             <GoalsCard />
             <StatsCard />
