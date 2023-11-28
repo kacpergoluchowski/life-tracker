@@ -6,7 +6,7 @@ import Account from "../components/Account";
 
 export default function Header() {
     return (
-        <header className="flex justify-between md:bg-slate-600 md:inline">
+        <header className="flex justify-between md:inline">
             <Logo />
             <SearchBar />
             <Account />
