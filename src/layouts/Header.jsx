@@ -17,7 +17,7 @@ export default function Header() {
 function SearchBar() {
     return (
         <section className="w-1/2 flex justify-center items-center">
-            <input type = 'text' className="w-11/12 h-1/2 rounded-full text-3xl px-7 shadow-lg shadow-gray-600/100" placeholder="Search"/>
+            <input type = 'text' className="w-11/12 h-1/2 rounded-full text-3xl px-7 shadow-lg shadow-gray-600/100 md:hidden" placeholder="Search"/>
         </section>
     )
 }

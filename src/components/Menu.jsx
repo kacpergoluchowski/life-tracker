@@ -9,7 +9,7 @@ import emailPic from '../images/email-pic.png';
 
 export default function Menu() {
     return (
-        <ul className="text-3xl pl-12 box-border my-5 w-1/5 font-Tsukimi flex flex-col justify-between">
+        <ul className="text-3xl pl-12 box-border my-5 w-1/5 font-Tsukimi flex flex-col justify-between md:hidden">
             <div>
                 <li className="flex my-5 gap-5 cursor-pointer"> <img src = {dashboardPic} className="w-9 h-9"/> Dashboard </li>
                 <li className="flex my-5 gap-5 cursor-pointer"> <img src = {habitsPic} className="w-9 h-9"/> Habits </li>

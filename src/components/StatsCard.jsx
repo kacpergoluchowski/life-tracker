@@ -51,7 +51,7 @@ export default function StatsCard() {
     }, []);
 
     return (
-        <section className="bg-blue-400 h-72 w-3/5 rounded-3xl font-Tsukimi p-5">
+        <section className="bg-blue-400 h-72 w-3/5 rounded-3xl font-Tsukimi p-5 md:w-full md:h-64">
             <canvas ref={chartRef} width="400" height="200" />
         </section>
     )
