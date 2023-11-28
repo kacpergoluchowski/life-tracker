@@ -11,7 +11,7 @@ module.exports = {
        fontSize: {
         'med-1': '2.5em', 
         'sml-1': '13px',
-        'sml-2': '70%'
+        'sml-2': '75%'
        },
        width: {
         'med-1': '32%',
