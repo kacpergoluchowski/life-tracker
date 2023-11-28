@@ -9,7 +9,9 @@ module.exports = {
         'Tsukimi': ['Tsukimi Rounded', 'sans-sans']
        },
        fontSize: {
-        'med-1': '2.5em' 
+        'med-1': '2.5em', 
+        'sml-1': '13px',
+        'sml-2': '70%'
        },
        width: {
         'med-1': '32%',

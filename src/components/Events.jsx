@@ -5,12 +5,10 @@ import calendarPic from '../images/calendar-pic.png'
 export default function EventsCard() {
     return (
         <section className="bg-amber-300 w-med-1 h-72 rounded-3xl font-Tsukimi p-5 md:w-med-2 md:h-48"> 
-            <h1 className="text-4xl md:text-xs"> Upcoming events </h1>
-            <span className="text-gray-500 ml-2"> and dates </span>
+            <h1 className="text-4xl md:text-xl"> Your events </h1>
             <ul className="mt-5"> 
-                <li className="text-2xl flex gap-3 my-6 md:text-xs"> <img src = {calendarPic} className="w-8 md:w-3" /> Job interviev </li>
-                <li className="text-2xl flex gap-3 my-6 md:text-xs"> <img src = {calendarPic} className="w-8 md:w-3" /> Family meeting </li>
-                <li className="text-2xl flex gap-3 my-6 md:text-xs"> <img src = {calendarPic} className="w-8 md:w-3" /> Bob's weddding </li>
+                <li className="text-2xl flex gap-3 my-6 items-center md:text-sml-1 md:my-1"> <img src = {calendarPic} className="w-8" /> Job interviev </li>
+                <li className="text-2xl flex gap-3 my-6 items-center md:text-sml-1 md:my-1"> <img src = {calendarPic} className="w-8" /> Family meet </li>
             </ul>
         </section>
     )
