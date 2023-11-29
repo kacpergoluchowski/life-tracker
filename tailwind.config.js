@@ -15,7 +15,8 @@ module.exports = {
        },
        width: {
         'med-1': '32%',
-        'med-2': '49%'
+        'med-2': '49%',
+        'med-3': '45%',
        },
        height: {
         'wrapper-height': '90%'
