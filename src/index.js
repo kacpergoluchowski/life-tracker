@@ -19,7 +19,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <div className='h-screen w-screen bg-gradient-to-br from-amber-200 to-amber-300 flex justify-center items-center py-4 md:h-min'>
+    <div className='h-screen w-screen bg-gradient-to-br from-amber-200 to-amber-300 flex justify-center items-center py-4 md:h-min overflow-hidden'>
       <RouterProvider router={router} />
     </div>
   </React.StrictMode>
