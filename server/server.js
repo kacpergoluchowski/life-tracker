@@ -30,7 +30,7 @@ mongoose.connect(MONGO_URI, options)
   });
 
 // Obsługa żądania POST /addUser
-app.post('/addUser', async (req, res) => {
+app.get('/addUser', async (req, res) => {
   try {
     const newUser = new UserModel({
       email: "dyziu@o2.pl",
