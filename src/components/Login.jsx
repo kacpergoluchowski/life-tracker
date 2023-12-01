@@ -14,7 +14,7 @@ export default function Login() {
             nickname: nicknameRef.current.value,
             password: passwordRef.current.value
         }
-        axios.post('http://localhost:9000/addUser', postData);
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/addUser`, postData);
     }
 
     return (
