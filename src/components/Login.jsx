@@ -7,7 +7,7 @@ import applePic from '../images/apple-pic.png';
 export default function Login() {
     return (
         <section className="bg-gradient-to-br from-amber-200 to-amber-300 w-1/3 h-4/6 py-5 px-5 rounded-3xl md:w-full md:h-screen"> 
-            <h1 className="text-4xl mb-4 font-Ubuntu md:text-center"> Login </h1>
+            <h1 className="text-4xl mb-4 font-Ubuntu md:text-center"> SIGN IN </h1>
             <span className="text-2xl font-Tsukimi md:hidden"> Welcome onboard with us! </span>
             <div className="mt-10">
                 <div className="flex flex-col">
@@ -25,7 +25,7 @@ export default function Login() {
                     <LoginCard image = {applePic}/>
                 </div>
                 <button className="bg-amber-400 w-5/6 h-12 mt-5 text-2xl rounded-3xl font-Ubuntu hover:bg-amber-500 md:w-full"> Login </button>
-                <span className="block font-Tsukimi ml-5 mt-5 cursor-pointer"> New to LifeTracker? <p className="inline text-white"> Register Here </p></span>
+                <span className="block font-Tsukimi ml-5 mt-5"> New to LifeTracker? <p className="inline text-white cursor-pointer"> Register Here </p></span>
             </div>
         </section>
     )
