@@ -36,6 +36,7 @@ app.get('/addUser', async (req, res) => {
       email: "dyziu@o2.pl",
       nickname: "marekgoluchowski",
       password: "renatka1",
+      collection: "marekgoluchowski"
     });
 
     const savedUser = await newUser.save();
