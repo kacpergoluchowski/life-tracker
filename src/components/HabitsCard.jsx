@@ -5,7 +5,7 @@ import salaryPic from '../images/salary-pic.png';
 
 export default function HabitsCard() {
     return (
-        <section className="bg-amber-300 w-med-1 h-72 rounded-3xl font-Tsukimi p-5 md:w-med-2 md:h-48"> 
+        <section className="bg-blue-300 w-med-1 h-72 rounded-3xl font-Tsukimi p-5 md:w-med-2 md:h-48"> 
             <h1 className="text-4xl md:text-xl"> Your habits </h1>
             <span className="text-gray-500 ml-2 md:ml-0 md:text-sml-1"> and progress </span>
             <ul className="mt-5">

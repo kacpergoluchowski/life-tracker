@@ -5,7 +5,7 @@ import drivingLicensePic from '../images/driving-license-pic.png';
 
 export default function GoalsCard() {
     return (
-        <section className="bg-amber-300 w-med-1 h-72 rounded-3xl font-Tsukimi p-5 md:w-med-2 md:h-48"> 
+        <section className="bg-blue-300 w-med-1 h-72 rounded-3xl font-Tsukimi p-5 md:w-med-2 md:h-48"> 
             <h1 className="text-4xl md:text-xl"> Your goals </h1>
             <span className="text-gray-500 ml-2 md:text-sml-1 md:ml-0"> and progress </span>
             <ul className="mt-5">

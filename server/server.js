@@ -2,10 +2,10 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-const port = process.env.PORT || 9000; // Używaj zmiennej 'port' zamiast 'process.env.PORT'
+const port = process.env.PORT || 9000;
 const MONGO_URI = process.env.MONGO_URI;
-const UserModel = require("./models/User");
 const cors = require('cors');
+const bp = require('body-parser')
 
 const options = {
   useNewUrlParser: true,
@@ -13,14 +13,14 @@ const options = {
 };
 
 app.use(cors());
-app.use(express.json()); // Dodaj middleware do obsługi danych JSON w żądaniach
+app.use(bp.json());
+app.use(bp.urlencoded({extended: true}));
+app.use(express.json());
 
-// Połącz z bazą danych na starcie serwera
 mongoose.connect(MONGO_URI, options)
   .then(() => {
     console.log("Pomyślnie połączono z bazą danych");
 
-    // Uruchom serwer po połączeniu z bazą danych
     app.listen(port, () => {
       console.log("Serwer uruchomiony na porcie ", port);
     });
@@ -29,20 +29,33 @@ mongoose.connect(MONGO_URI, options)
     console.error("Błąd połączenia z bazą danych:", err);
   });
 
-// Obsługa żądania POST /addUser
-app.get('/addUser', async (req, res) => {
+app.post('/addUser', async (req, res) => {
+  console.log(req.body);
+  const userSchema = new mongoose.Schema({
+    email: String,
+    nickname: String,
+    password: String
+  }, {
+    collection: req.body.nickname
+  });
+
+  const UserModel = mongoose.model('User', userSchema);
+  
   try {
-    const newUser = new UserModel({
-      email: "dyziu@o2.pl",
-      nickname: "marekgoluchowski",
-      password: "renatka1",
+    const newUser = new UserModel({  
+      email: req.body.email,
+      nickname: req.body.nickname,
+      password: req.body.password,
     });
 
     const savedUser = await newUser.save();
+    
     console.log("Dodano użytkownika", savedUser);
+    
     res.status(201).json({ message: 'Użytkownik dodany pomyślnie', user: savedUser });
   } catch (error) {
     console.log("BŁAD: ", error);
+    
     res.status(500).json({ error: 'Błąd podczas dodawania użytkownika' });
   }
 });

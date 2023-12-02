@@ -4,49 +4,44 @@ import '../index.css';
 import fbPic from '../images/fb-pic.png';
 import googlePic from '../images/google-pic.png';
 import applePic from '../images/apple-pic.png';
+import { Link } from "react-router-dom";
+import Logo from "./Logo";
+import loginPic from '../images/login-pic.png';
 
 export default function Login() {
-    const nicknameRef = useRef(0);
-    const passwordRef = useRef(0);
-
-    function loginUser() {
-        const postData = {
-            nickname: nicknameRef.current.value,
-            password: passwordRef.current.value
-        }
-        axios.get(`${process.env.REACT_APP_BACKEND_URL}/addUser`, postData);
-    }
-
     return (
-        <section className="bg-gradient-to-br from-amber-200 to-amber-300 w-1/3 h-4/6 py-5 px-5 rounded-3xl md:w-full md:h-screen"> 
-            <h1 className="text-4xl mb-4 font-Ubuntu md:text-center"> SIGN IN </h1>
-            <span className="text-2xl font-Tsukimi md:hidden"> Welcome onboard with us! </span>
-            <div className="mt-10">
-                <div className="flex flex-col">
-                    <span className="text-2xl ml-4 font-Tsukimi"> Username </span>
-                    <input type = 'text' placeholder="Enter your username" className="w-5/6 h-12 rounded-3xl px-5 font-Tsukimi md:w-full" ref={nicknameRef}/>
+        <section className="absolute top-0 left-0 bg-white w-full h-wrapper-login rounded-3xl md:w-full md:h-screen"> 
+            <div className="bg-blue-200 rounded-3xl h-full w-3/5">
+                <Logo />
+                <div className="flex justify-center items-center h-5/6 ">
+                    <div className="w-full h-3.6 flex justify-center items-center">
+                        <img src = {loginPic} className="w-4/5"/>
+                    </div>
                 </div>
-                <div className="flex flex-col mt-5">
-                    <span className="text-2xl ml-4 font-Tsukimi"> Password </span>
-                    <input type = 'password' placeholder="Enter your password" className="w-5/6 h-12 rounded-3xl px-5 font-Tsukimi md:w-full" ref={passwordRef}/>
-                    <span className="text-xl ml-auto mr-24 text-slate-500 cursor-pointer hover:text-slate-800 font-Tsukimi md:mr-0"> Forgot password? </span>
-                </div>
-                <div className="flex gap-6 mt-5 h-16 md:justify-around">
-                    <LoginCard image = {fbPic}/>
-                    <LoginCard image = {googlePic}/>
-                    <LoginCard image = {applePic}/>
-                </div>
-                <button className="bg-amber-400 w-5/6 h-12 mt-5 text-2xl rounded-3xl font-Ubuntu hover:bg-amber-500 md:w-full" onClick={loginUser}> Login </button>
-                <span className="block font-Tsukimi ml-5 mt-5"> New to LifeTracker? <p className="inline text-white cursor-pointer"> Register Here </p></span>
+                <LoginCard />
             </div>
+            <LoginCard />
         </section>
     )
 }
 
 function LoginCard(props) {
     return (
-        <div className="w-1/4 bg-white/50 rounded-full flex items-center justify-center hover:bg-white/100 hover:cursor-pointer">
-            <img src = {props.image} className="h-4/6"/>
+        <div className="absolute right-0 top-0 w-2/5 h-full py-24 text-center">
+            <h1 className="font-Tsukimi text-6xl"> SIGN IN </h1>
+            <div className="h-5/6 mt-12 py-5 flex justify-center items-center flex-col gap-y-4">
+                <input type = 'text' className="w-1/2 h-16 rounded-3xl text-2xl px-5 bg-slate-200" placeholder="Enter your nickname"/>
+                <input type = 'text' className="w-1/2 h-16 rounded-3xl text-2xl px-5 bg-slate-200" placeholder="Enter your password"/>
+                <button className="bg-blue-300 w-1/2 h-12 text-3xl rounded-3xl hover:bg-blue-400"> Login </button>
+                <h1> ------------------------------------ or ------------------------------------ </h1>
+                <div className="flex gap-x-5">
+                    <img src = {fbPic} className="h-3/6 bg-blue-200 px-8 py-2 rounded-full cursor-pointer hover:bg-blue-300"/>
+                    <img src = {googlePic}  className="h-3/6 bg-blue-200 px-8 py-2 rounded-full cursor-pointer hover:bg-blue-300"/>
+                    <img src = {applePic} className="h-3/6 bg-blue-200 px-8 py-2 rounded-full cursor-pointer hover:bg-blue-300"/>
+                </div>
+                <h1 className="flex gap-x-2 text-2xl font-Tsukimi"> New to LifeTracker? <Link to='/register' className="text-blue-300 underline cursor-pointer hover:text-blue-400"> Register Here </Link></h1>
+            </div>
+            
         </div>
     )
 }

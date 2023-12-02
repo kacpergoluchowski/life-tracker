@@ -16,10 +16,11 @@ module.exports = {
        width: {
         'med-1': '32%',
         'med-2': '49%',
-        'med-3': '45%',
+        'med-3': '45%'
        },
        height: {
-        'wrapper-height': '90%'
+        'wrapper-height': '90%',
+        'wrapper-login': '87vh'
        },
        screens: {
         'desktop': {'min': '1525px'},

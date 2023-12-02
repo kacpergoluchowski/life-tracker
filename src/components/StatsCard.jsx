@@ -21,8 +21,8 @@ export default function StatsCard() {
                     {
                         label: 'Your money',
                         data: [7900, 2400, 3900, 6300, 7100],
-                        backgroundColor: '#fcba03',
-                        borderColor: '#fcba03',
+                        backgroundColor: '#FFFFFF',
+                        borderColor: '#FFFFFF',
                         borderWidth: 3,
                     },
                 ]
@@ -51,7 +51,7 @@ export default function StatsCard() {
     }, []);
 
     return (
-        <section className="bg-blue-400 h-72 w-3/5 rounded-3xl font-Tsukimi p-5 md:w-full md:h-64">
+        <section className="bg-blue-300 h-72 w-3/5 rounded-3xl font-Tsukimi p-5 md:w-full md:h-64">
             <canvas ref={chartRef} width="400" height="200" />
         </section>
     )

@@ -29,10 +29,10 @@ export default function Account() {
 function AccountOptions(props) {
     return (
         <section className="absolute top-0 right-0 bg-black/70 w-1/4 h-screen flex text-white items-center justify-center text-center text-6xl md:w-3/5 md:text-4xl">
-            <img src = {closePic} className="absolute right-5 top-5 w-24 cursor-pointer" onClick={() => props.setVisible()}/>
+            <img src = {closePic} className="absolute right-5 top-5 w-20 cursor-pointer " onClick={() => props.setVisible()}/>
             <ul> 
                 <Link to='/login'> <li className="py-5"> LOGIN </li> </Link>
-                <li className="py-5"> REGISTER </li>
+                <Link to='/register'> <li className="py-5"> REGISTER </li> </Link>
             </ul>
         </section>
     )
