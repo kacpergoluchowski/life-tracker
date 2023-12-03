@@ -6,7 +6,7 @@ import loginPic from '../images/login-pic.png';
 
 export default function LoginPage() {
     return (
-       <div className="relative bg-blue-100 shadow-lg shadow-gray-800/100 w-11/12 h-wrapper-height rounded-3xl px-5 py-3 md:px-2 md:mt-0 md:h-min">
+       <div className="relative bg-blue-100 shadow-lg shadow-gray-800/100 w-11/12 h-min rounded-3xl px-5 py-3">
             <Logo />
             <div className="flex items-center justify-around md:flex-col">
                 <Login />

@@ -15,7 +15,7 @@ export default function Register() {
                 <Logo />
                 <div className="flex justify-center items-center h-5/6 ">
                     <div className="w-full h-3.6 flex justify-center items-center">
-                        <img src = {loginPic} className="w-4/5"/>
+                        <img src = {loginPic} className="w-4/5 md:hidden"/>
                     </div>
                 </div>
                 <RegisterCard />
