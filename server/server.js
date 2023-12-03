@@ -29,33 +29,46 @@ mongoose.connect(MONGO_URI, options)
     console.error("Błąd połączenia z bazą danych:", err);
   });
 
-app.post('/addUser', async (req, res) => {
-  console.log(req.body);
-  const userSchema = new mongoose.Schema({
-    email: String,
-    nickname: String,
-    password: String
-  }, {
-    collection: req.body.nickname
-  });
-
-  const UserModel = mongoose.model('User', userSchema);
+  app.post('/addUser', async (req, res) => {
+    const collectionName = req.body.nickname;
   
-  try {
-    const newUser = new UserModel({  
-      email: req.body.email,
-      nickname: req.body.nickname,
-      password: req.body.password,
-    });
-
-    const savedUser = await newUser.save();
-    
-    console.log("Dodano użytkownika", savedUser);
-    
-    res.status(201).json({ message: 'Użytkownik dodany pomyślnie', user: savedUser });
-  } catch (error) {
-    console.log("BŁAD: ", error);
-    
-    res.status(500).json({ error: 'Błąd podczas dodawania użytkownika' });
-  }
-});
+    let UserModel;
+    try {
+      UserModel = mongoose.model(collectionName);
+    } catch (error) {
+      const userSchema = new mongoose.Schema({
+        email: String,
+        nickname: String,
+        password: String
+      }, {
+        collection: collectionName
+      });
+  
+      UserModel = mongoose.model(collectionName, userSchema);
+    }
+  
+    try {
+      const newUser = new UserModel({
+        email: req.body.email,
+        nickname: req.body.nickname,
+        password: req.body.password,
+      });
+  
+      const savedUser = await newUser.save();
+      console.log("Dodano użytkownika", savedUser);
+  
+      res.status(201).json({
+        success: true,
+        message: 'Użytkownik dodany pomyślnie',
+        user: savedUser,
+      });
+    } catch (error) {
+      console.error("BŁAD: ", error);
+  
+      res.status(500).json({
+        success: false,
+        error: 'Błąd podczas dodawania użytkownika',
+        details: error.message,
+      });
+    }
+  });

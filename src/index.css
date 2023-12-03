@@ -3,3 +3,12 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tsukimi+Rounded&display=swap');
+
+@keyframes fadeDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(25%);
+    }
+}
