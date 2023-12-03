@@ -6,6 +6,7 @@ const port = process.env.PORT || 9000;
 const MONGO_URI = process.env.MONGO_URI;
 const cors = require('cors');
 const bp = require('body-parser')
+const nodemailer = require('nodemailer');
 
 const options = {
   useNewUrlParser: true,
@@ -30,6 +31,30 @@ mongoose.connect(MONGO_URI, options)
   });
 
   app.post('/addUser', async (req, res) => {
+    function sendMail() {
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: 'lifetracker0@gmail.com',
+          pass: 'iefh ykaq ezco kegs'
+        }
+      })
+
+      const mailOptions = {
+        from: 'lifetracker0@gmail.com',
+        to: req.body.email,
+        subject: 'LifeTracker login confirmation',
+        text: 'Thank you for signing up for our LifeTracker app. You can now log in to your account.'
+      }
+
+      transporter.sendMail(mailOptions, (err, info) => {
+        if(err)
+          console.log(err);
+        else
+          console.log('email sent!');
+      })
+    }
+
     const collectionName = req.body.nickname;
   
     let UserModel;
@@ -62,6 +87,7 @@ mongoose.connect(MONGO_URI, options)
         message: 'Użytkownik dodany pomyślnie',
         user: savedUser,
       });
+      sendMail();
     } catch (error) {
       console.error("BŁAD: ", error);
   
