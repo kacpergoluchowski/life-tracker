@@ -10,7 +10,7 @@ import closePic from '../images/close (5).png'
 
 export default function MobileMenu(props) {
     return (
-        <ul className="fixed top-0 left-0 w-screen h-screen bg-amber-300 flex flex-col justify-center items-center text-4xl">
+        <ul className="fixed top-0 left-0 w-screen h-screen bg-blue-300 flex flex-col justify-center items-center text-4xl z-50">
                 <img src = {closePic} className="absolute w-2/12 top-5 right-5" onClick={props.setVisible} />
                 <div>
                     <li className="flex my-5 gap-5 cursor-pointer"> <img src = {dashboardPic} className="w-9 h-9"/> Dashboard </li>

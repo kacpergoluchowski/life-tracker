@@ -15,7 +15,7 @@ export default function Logo(props) {
 
     return (
         <section className="flex justify-between items-center md:w-full md:px-3">
-            <div className="flex items-center justify-center text-med-1 w-96 h-32 gap-4 font-Ubuntu md:text-3xl md:h-16 md:gap-2 md:w-56 md:my-2">
+            <div className="flex items-center justify-center text-med-1 w-96 h-32 gap-4 font-Ubuntu md:text-3xl md:h-16 md:w-56 md:my-2">
                 <Link to='/' className="flex items-center justify-around">
                     <img src = {logoPic} className="w-16 md:w-12"/>
                     <h1> LifeTracker </h1>
