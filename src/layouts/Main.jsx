@@ -30,25 +30,42 @@ export default function Main() {
 }
 
 const MobileViev = () => {
+    const mainVisibility = localStorage.getItem('nickname') || false;
+
     return (
-        <main className="md:flex md:flex-wrap md:w-full md:gap-1 md:ml-0">
-            <HabitsCard />
-            <GoalsCard />
-            <StatsCard />
-            <EventsCard />
-            <NotesCard />
-        </main>
+        <>
+            { !mainVisibility && <h1 className="font-Tsukimi m-auto text-2xl"> Login to access your bookmarks... </h1> }
+            { mainVisibility && (
+                <main className="md:flex md:flex-wrap md:w-full md:gap-1 md:ml-0">
+                <HabitsCard />
+                <GoalsCard />
+                <StatsCard />
+                <EventsCard />
+                <NotesCard />
+                </main>
+            )}
+            
+        </>
+        
     )
 }
 
 const DesktopViev = () => {
+    const mainVisibility = localStorage.getItem('nickname') || false;
+
     return (
-        <main className="ml-5 w-4/5 flex justify-around gap-4 flex-wrap">
-            <HabitsCard />
-            <StatsCard />
-            <GoalsCard />
-            <NotesCard />
-            <EventsCard />
-        </main>
+        <>
+            { !mainVisibility && <h1 className="font-Tsukimi m-auto text-6xl"> Login to access your bookmarks... </h1> }
+            { mainVisibility && (
+                <main className="ml-5 w-4/5 flex justify-around gap-4 flex-wrap">
+                <HabitsCard />
+                <StatsCard />
+                <GoalsCard />
+                <NotesCard />
+                <EventsCard />
+                </main>
+            )}
+        </>
+        
     )
 }
