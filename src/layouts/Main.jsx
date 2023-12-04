@@ -30,21 +30,15 @@ export default function Main() {
 }
 
 const MobileViev = () => {
-    const mainVisibility = localStorage.getItem('nickname') || false;
-
     return (
         <>
-            { !mainVisibility && <h1 className="font-Tsukimi m-auto text-2xl"> Login to access your bookmarks... </h1> }
-            { mainVisibility && (
-                <main className="md:flex md:flex-wrap md:w-full md:gap-1 md:ml-0">
+            <main className="md:flex md:flex-wrap md:w-full md:gap-1 md:ml-0">
                 <HabitsCard />
                 <GoalsCard />
                 <StatsCard />
                 <EventsCard />
                 <NotesCard />
-                </main>
-            )}
-            
+            </main>
         </>
         
     )

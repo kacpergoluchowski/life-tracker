@@ -53,7 +53,7 @@ export default function StatsCard() {
     return (
         <section className="bg-blue-300 h-72 w-3/5 rounded-3xl font-Tsukimi p-5 md:w-full md:h-64">
             <div className="h-5/6 flex items-center">
-                <h2 className="text-5xl"> NO STATS... </h2>
+                <h2 className="text-5xl md:text-3xl"> NO STATS... </h2>
             </div>         
         </section>
     )

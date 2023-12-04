@@ -8,7 +8,7 @@ export default function HabitsCard() {
         <section className="bg-blue-300 w-med-1 h-72 rounded-3xl font-Tsukimi p-5 md:w-med-2 md:h-48"> 
             <h1 className="text-4xl md:text-xl"> Your habits </h1>
             <div className="h-5/6 flex items-center">
-                <h2 className="text-5xl"> NO HABITS... </h2>
+                <h2 className="text-5xl md:text-2xl"> NO HABITS... </h2>
             </div>
         </section>
     )
