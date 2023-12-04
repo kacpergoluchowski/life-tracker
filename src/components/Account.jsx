@@ -7,8 +7,8 @@ import closePic from '../images/close (5).png'
 
 export default function Account() {
     const [optionsVisible, setOptionsVisible] = useState(false);
+    const userNickname = localStorage.getItem('nickname') || "Guest";
     
-
     function handleArrow() {
         setOptionsVisible(prevVisible => !prevVisible);
     }
@@ -17,7 +17,7 @@ export default function Account() {
         <section className="w-1/6 flex items-center justify-end gap-4 mr-20 md:w-full md:justify-start md:pl-4 md:py-5">
             <img src = {guestPic} />
             <div className="h-4/5 flex flex-col justify-center gap-y-2">
-                <h1 className="text-3xl"> Guest </h1>
+                <h1 className="text-3xl"> {userNickname} </h1>
                 <span> No-role </span>
             </div>
             <img src = {arrow} onClick={handleArrow} className="cursor-pointer"/>
