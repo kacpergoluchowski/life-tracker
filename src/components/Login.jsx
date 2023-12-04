@@ -48,7 +48,7 @@ export default function Login() {
                 <h1 className="font-Tsukimi text-6xl"> SIGN IN </h1>
                 <div className="h-5/6 mt-12 py-5 flex justify-center items-center flex-col gap-y-4">
                 <input type="text" className="w-1/2 h-16 rounded-3xl text-2xl px-5 bg-slate-200 md:bg-white md:w-4/5 md:h-16" placeholder="Enter your nickname" ref={nicknameRef}/>
-                <input type="text" className="w-1/2 h-16 rounded-3xl text-2xl px-5 bg-slate-200 md:bg-white md:w-4/5 md:h-16" placeholder="Enter your password" ref={passwordRef}/>
+                <input type="password" className="w-1/2 h-16 rounded-3xl text-2xl px-5 bg-slate-200 md:bg-white md:w-4/5 md:h-16" placeholder="Enter your password" ref={passwordRef}/>
                 <button className="bg-blue-300 w-1/2 h-12 text-3xl rounded-3xl hover:bg-blue-400 md:w-4/5" onClick={handleLogin}> Login </button>
                 <h1 className="md:my-5"> --------------------- or --------------------- </h1>
                 <div className="flex gap-x-5 justify-center">
