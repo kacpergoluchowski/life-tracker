@@ -1,4 +1,4 @@
-// ------------------------------------- IMPORT BIBLIOTEK ------------------------------------- 
+// ------------------------------------- IMPORT BIBLIOTEK -------------------------------------
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
@@ -42,7 +42,6 @@ mongoose
 // ------------------------------------- ENDPOINT - REJESTROWANIE UŻYTKOWNIKA -------------------------------------
 
 app.post("/addUser", async (req, res) => {
-  
   const collectionName = req.body.nickname;
 
   let UserModel;
@@ -149,10 +148,46 @@ app.post("/loginUser", async (req, res) => {
         success: false,
         message: "User doesn't exist!",
         user: null,
-      });;
+      });
     }
   } catch (err) {
     console.error(err);
+  }
+});
+
+app.post("/addActivities", async (req, res) => {
+  const db = mongoose.connection.db;
+  let activityModel;
+  if(mongoose.modelNames().includes('ActivityModel')) {
+    activityModel = mongoose.model('ActivityModel');
+  } else {
+    var activitySchema = mongoose.Schema({
+      id: Number,
+      type: String,
+    });
+  }
+
+  activityModel = mongoose.model('ActivityModel', activitySchema, req.body.nickname)
+
+  const newActivity = [
+    {
+      id: req.body.id,
+      type: req.body.type,
+    },
+  ];
+
+  try {
+    activityModel.create(newActivity);
+    res.status(201).json({
+      success: true,
+      message: 'activity added!'
+    })
+  } catch(err) {
+    console.log(err)
+    res.status(201).json({
+      success: false,
+      message: 'error: ', err
+    })
   }
 });
 
@@ -161,7 +196,10 @@ app.post("/loginUser", async (req, res) => {
 
 
 
-// ------------------------------------- FUNKCJE ------------------------------------- 
+
+
+
+// ------------------------------------- FUNKCJE -------------------------------------
 
 function sendMail(email) {
   const transporter = nodemailer.createTransport({

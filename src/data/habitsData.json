@@ -1,0 +1,123 @@
+[
+    {
+        "id": 1,
+        "name": "Morning Routine",
+        "adventage1": "increase productivity",
+        "adventage2": "take care of your health",
+        "adventage3": "personal development",
+        "icon": "../images/good-morning 1.png"
+    },
+    {
+        "id": 2,
+        "name": "Planning the day",
+        "adventage1": "increase productivity",
+        "adventage2": "manage your time",
+        "adventage3": "work efficiency",
+        "icon": "../images/good-morning 1.png"
+
+    },
+    {
+        "id": 3,
+        "name": "Balanced diet",
+        "adventage1": "healthy body",
+        "adventage2": "increasing energy",
+        "adventage3": "providing nutrients",
+        "icon": "../images/good-morning 1.png"
+    },
+    {
+        "id": 4,
+        "name": "Daily reading",
+        "adventage1": "intellectual development",
+        "adventage2": "strengthening concentration",
+        "adventage3": "development of creativity",
+        "icon": "../images/good-morning 1.png"
+    },
+    {
+        "id": 5,
+        "name": "Writing down thoughts",
+        "adventage1": "better organization of thoughts",
+        "adventage2": "better understanding of yourself",
+        "adventage3": "stress reduction",
+        "icon": "../images/good-morning 1.png"
+    },
+    {
+        "id": 6,
+        "name": "Learning new skills",
+        "adventage1": "intellectual development",
+        "adventage2": "satisfaction and joys",
+        "adventage3": "Development new contacts",
+        "icon": "../images/good-morning 1.png"
+    },
+    {
+        "id": 7,
+        "name": "Rest and sleep",
+        "adventage1": "recovering energy",
+        "adventage2": "increasing efficiency",
+        "adventage3": "maintaining life balance",
+        "icon": "../images/good-morning 1.png"
+    },
+    {
+        "id": 8,
+        "name": "Avoiding multitasking",
+        "adventage1": "better quality of work",
+        "adventage2": "error reduction",
+        "adventage3": "better time management",
+        "icon": "../images/good-morning 1.png"
+    },
+    {
+        "id": 9,
+        "name": "Practicing gratitude",
+        "adventage1": "developing optimism",
+        "adventage2": "improving mental health",
+        "adventage3": "stress reduction",
+        "icon": "../images/good-morning 1.png"
+    },
+    {
+        "id": 10,
+        "name": "Online security",
+        "adventage1": "fraud prevention",
+        "adventage2": "financial security",
+        "adventage3": "privacy protection",
+        "icon": "../images/good-morning 1.png"
+    },
+    {
+        "id": 11,
+        "name": "Avoiding procrastination",
+        "adventage1": "increasing efficiency",
+        "adventage2": "meeting deadlines",
+        "adventage3": "increasing your chances of success",
+        "icon": "../images/good-morning 1.png"
+    },
+    {
+        "id": 12,
+        "name": "Drinking water regularly",
+        "adventage1": "improving brain function",
+        "adventage2": "Improved digestion",
+        "adventage3": "Preventing dehydration",
+        "icon": "../images/good-morning 1.png"
+    },
+    {
+        "id": 13,
+        "name": "Meditation",
+        "adventage1": "stress reduction",
+        "adventage2": "improving the ability to focus",
+        "adventage3": "Increased sense of peace",
+        "icon": "../images/good-morning 1.png"
+    },
+    {
+        "id": 14,
+        "name": "Maintaining order",
+        "adventage1": "improved well-being",
+        "adventage2": "saves time",
+        "adventage3": "maintaining mental order",
+        "icon": "../images/good-morning 1.png"
+    },
+    {
+        "id": 15,
+        "name": "Care for relationships",
+        "adventage1": "emotional support",
+        "adventage2": "increased sense of security",
+        "adventage3": "cooperation and achieving goals",
+        "icon": "../images/good-morning 1.png"
+    }
+]

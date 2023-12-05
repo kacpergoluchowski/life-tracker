@@ -18,11 +18,14 @@ module.exports = {
         'med-2': '49%',
         'med-3': '45%',
         'med-4': '6vw',
-        'med-5': '25vw'
+        'med-5': '25vw',
+        'med-6': '327px'
        },
        height: {
         'wrapper-height': '90%',
         'wrapper-login': '87vh',
+        'wrapper-card': '30%',
+        'med-1': '76%'
        },
        screens: {
         'desktop': {'min': '1525px'},
@@ -41,6 +44,11 @@ module.exports = {
         'sm': {'max': '639px'},
         // => @media (max-width: 639px) { ... }
       },
+      colors: {
+        'darkBlue': '#6991C7',
+        'blue-1': '#A3BDED',
+        'blue-2': '#6991C7'
+      }
     },
   },
   plugins: [],
