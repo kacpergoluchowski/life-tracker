@@ -36,7 +36,7 @@ export default function Main() {
             <DesktopViev mainVisibility = {mainVisibility} activitiesData = {activitiesData}/>
         )}
         { windowWidth <= 769 && (
-            <MobileViev activitiesData = {activitiesData}/>
+            <MobileViev mainVisibility = {mainVisibility} activitiesData = {activitiesData}/>
         )}
         </ActivitiesContext.Provider>
     )
@@ -45,18 +45,20 @@ export default function Main() {
 const MobileViev = (props) => {
     return (
         <>
-            <main className="md:flex md:flex-wrap md:w-full md:gap-1 md:ml-0">
-                    <HabitsCard />
-                    <GoalsCard />
-                    <StatsCard />
-                    <EventsCard />
-                    <NotesCard />
+            { !props.mainVisibility && <h1 className="font-Tsukimi m-auto text-6xl"> Login to access your bookmarks... </h1> }
+            { props.mainVisibility && props.activitiesData && (
+            <main className="w-full flex flex-wrap justify-between gap-y-1 mt-3">
+                <HabitsCard />
+                <GoalsCard />
+                <StatsCard />
+                <NotesCard />
+                <EventsCard />
             </main>
+            )}
             { !props.activitiesData && (
                 <h1> LOADING </h1>
             )}
-        </>
-            
+        </>  
     )
 }
 
