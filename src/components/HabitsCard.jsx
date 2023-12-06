@@ -33,10 +33,10 @@ export default function HabitsCard() {
             <h1 className="text-4xl md:text-xl"> Your habits </h1>
             <div className="h-5/6 flex flex-col">
                 { habits.length == 0 &&
-                    <h2 className="text-5xl md:text-2xl"> NO HABITS... </h2>
+                    <h2 className="text-5xl md:text-2xl my-auto"> NO HABITS... </h2>
                 }
                 { habits.length == 1 &&  
-                    <li className="text-2xl flex gap-3 my-6 items-center md:text-sml-2 md:my-2"> <img src = {iconArr[habits[0]]} className="w-8" /> {habitsData[habits[0]-1].name} </li>
+                    <li className="text-2xl flex gap-3 my-6 items-center md:text-sml-2 md:my-2"> <img src = {iconArr[habits[0]-1]} className="w-8" /> {habitsData[habits[0]-1].name} </li>
                 }
                 { habits.length > 1 && habits.length !== 1 && 
                     <ul className="mt-2">

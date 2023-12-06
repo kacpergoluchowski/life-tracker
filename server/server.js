@@ -42,52 +42,72 @@ mongoose
 // ------------------------------------- ENDPOINT - REJESTROWANIE UŻYTKOWNIKA -------------------------------------
 
 app.post("/addUser", async (req, res) => {
+  const db = mongoose.connection.db;
   const collectionName = req.body.nickname;
 
-  let UserModel;
-  try {
-    UserModel = mongoose.model(collectionName);
-  } catch (error) {
-    const userSchema = new mongoose.Schema(
-      {
-        email: String,
-        nickname: String,
-        password: String,
-      },
-      {
-        collection: collectionName,
-      }
-    );
+  const collections = await db.listCollections().toArray();
 
-    UserModel = mongoose.model(collectionName, userSchema);
-  }
+  let userExists = false;
 
-  try {
-    const newUser = new UserModel({
-      email: req.body.email,
-      nickname: req.body.nickname,
-      password: req.body.password,
-    });
+  collections.forEach((collection) => {
+    if (collection.name === req.body.nickname) {
+      userExists = true;
+    }
+  });
 
-    const savedUser = await newUser.save();
-    console.log("Dodano użytkownika", savedUser);
-
+  if (userExists)
     res.status(201).json({
-      success: true,
-      message: "Użytkownik dodany pomyślnie",
-      user: savedUser,
-    });
-    sendMail(req.body.email);
-  } catch (error) {
-    console.error("BŁAD: ", error);
-
-    res.status(500).json({
       success: false,
-      error: "Błąd podczas dodawania użytkownika",
-      details: error.message,
+      message: "user exist!",
     });
+  else {
+    let UserModel;
+    try {
+      UserModel = mongoose.model(collectionName);
+    } catch (error) {
+      const userSchema = new mongoose.Schema(
+        {
+          email: String,
+          nickname: String,
+          password: String,
+        },
+        {
+          collection: collectionName,
+        }
+      );
+
+      UserModel = mongoose.model(collectionName, userSchema);
+    }
+
+    try {
+      const newUser = new UserModel({
+        email: req.body.email,
+        nickname: req.body.nickname,
+        password: req.body.password,
+      });
+
+      const savedUser = await newUser.save();
+      console.log("Dodano użytkownika", savedUser);
+
+      res.status(201).json({
+        success: true,
+        message: "Użytkownik dodany pomyślnie",
+        user: savedUser,
+      });
+      sendMail(req.body.email);
+    } catch (error) {
+      console.error("BŁAD: ", error);
+
+      res.status(500).json({
+        success: false,
+        error: "Błąd podczas dodawania użytkownika",
+        details: error.message,
+      });
+    }
   }
 });
+
+//});
 
 // ------------------------------------- ENDPOINT - LOGOWANIE UŻYTKOWNIKA -------------------------------------
 
@@ -198,7 +218,7 @@ app.post("/addActivities", async (req, res) => {
 
 app.post("/getActivities", async (req, res) => {
   let User;
-  let collectionName = req.body.nickname
+  let collectionName = req.body.nickname;
 
   try {
     User = mongoose.model(collectionName);
@@ -221,27 +241,12 @@ app.post("/getActivities", async (req, res) => {
     const activities = await User.find({});
     res.status(201).json({
       success: true,
-      content: activities
-    })
-  } catch(err) {
+      content: activities,
+    });
+  } catch (err) {
     console.log(err);
   }
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // ------------------------------------- FUNKCJE -------------------------------------
 

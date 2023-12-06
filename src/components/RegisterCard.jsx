@@ -47,8 +47,6 @@ export default function RegisterCard() {
         try {
             const response = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/addUser`, postData)
             setRegistrationResponse(response.data);
-            setMessageData({title: "Thanks for register!", content: "An email confirming your registration in our application has been sent to your email address!", button: "Home"});
-            setMessageVisible(true);
         } catch (error) {
             console.error('Error during registration:', error.message);
 
@@ -58,6 +56,17 @@ export default function RegisterCard() {
             });
         }
     }
+
+    useEffect(() => {
+        if(registrationResponse && !registrationResponse.success) {
+            setMessageData({title: "This user is exist!", content: 'Choose another nickname', button: "Close"})
+            setMessageVisible(true);
+        }
+        else if(registrationResponse && registrationResponse.success) {
+            setMessageData({title: "Thanks for register!", content: "An email confirming your registration in our application has been sent to your email address!", button: "Home"});
+            setMessageVisible(true);
+        }
+    }, [registrationResponse])
 
     return (
         <>
