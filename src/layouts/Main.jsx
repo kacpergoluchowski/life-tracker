@@ -36,9 +36,8 @@ const MobileViev = () => {
     const [activitiesData, setActivitiesData] = useState(null)
     
     useEffect(() => {
-        if(mainVisibility)
-            getActivities()
-            .then((data) => { setActivitiesData(data); })
+        getActivities()
+           .then((data) => { setActivitiesData(data); })
             .catch((err) => {
                 console.log(err)
             });
