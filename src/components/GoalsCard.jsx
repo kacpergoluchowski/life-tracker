@@ -1,7 +1,5 @@
 import React from "react";
 import '../index.css';
-import engBookPic from '../images/eng-book-pic.png'
-import drivingLicensePic from '../images/driving-license-pic.png';
 
 export default function GoalsCard() {
     return (
@@ -13,9 +11,3 @@ export default function GoalsCard() {
         </section>
     )
 }
-
-{/* <span className="text-gray-500 ml-2 md:text-sml-1 md:ml-0"> and progress </span>
-<ul className="mt-5">
-    <li className="text-2xl flex gap-3 my-6 items-center md:text-sml-2 md:my-3"> <img src = {engBookPic} className="w-8" /> Learn english </li>
-    <li className="text-2xl flex gap-3 my-6 items-center md:text-sml-2 md:my-3"> <img src = {drivingLicensePic} className="w-8" /> Get a license </li>
-</ul> */}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "../layouts/Header";
 import HabitsList from "../layouts/HabitsList";
+import UserHabits from "../layouts/UserHabits";
 
 export default function HabitsPage() {
     const [habitsListVisible, setHabitsListVisible] = useState(true);
@@ -27,7 +28,7 @@ export default function HabitsPage() {
                 <HabitsList />
             )}
             { userHabitsVisible && (
-                <h1> user habits </h1>
+                <UserHabits />
             )}
         </div>
     )

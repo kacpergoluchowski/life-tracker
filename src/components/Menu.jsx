@@ -8,7 +8,7 @@ import moneyPic from '../images/money-pic.png'
 import emailPic from '../images/email-pic.png';
 import { Link } from "react-router-dom";
 
-export default function Menu(props) {
+export default function Menu() {
     return (
         <ul className="text-3xl pl-12 box-border my-5 w-1/5 font-Tsukimi flex flex-col justify-between md:hidden">
                 <div>

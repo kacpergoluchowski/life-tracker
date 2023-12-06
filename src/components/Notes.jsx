@@ -1,6 +1,5 @@
 import React from "react";
 import '../index.css';
-import notesPic from '../images/copy-writing.png'
 
 export default function NotesCard() {
     return (
@@ -12,8 +11,3 @@ export default function NotesCard() {
         </section>
     )
 }
-
-<ul className="mt-5">
-    <li className="text-2xl flex gap-3 my-6 items-center md:text-sml-1 md:my-2"> <img src = {notesPic} className="w-8" /> shopping list </li>
-    <li className="text-2xl flex gap-3 my-6 items-center md:text-sml-1 md:my-2"> <img src = {notesPic} className="w-8" /> to complete </li>
-</ul>

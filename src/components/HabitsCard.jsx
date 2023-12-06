@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import '../index.css';
-import bookPic from '../images/book-pic.png'
-import salaryPic from '../images/salary-pic.png';
 import ActivitiesContext from '../contexts/ActivitiesContext'
 import habitsData from '../data/habitsData.json';
 import findActivities from "../utilities/findActivities";
@@ -21,7 +19,6 @@ import meditation from '../images/meditation 1.png'
 import thought from '../images/thought 1.png'
 import friendship from '../images/friendship 1.png'
 
-
 export default function HabitsCard() {
     const activitiesData = useContext(ActivitiesContext);
     const [habits, setHabits] = useState([])
@@ -35,9 +32,9 @@ export default function HabitsCard() {
         <section className="bg-blue-300 w-med-1 h-72 rounded-3xl font-Tsukimi p-5 md:w-med-2 md:h-48"> 
             <h1 className="text-4xl md:text-xl"> Your habits </h1>
             <div className="h-5/6 flex flex-col">
-                { habits.length == 0 && (
+                { habits.length == 0 &&
                     <h2 className="text-5xl md:text-2xl"> NO HABITS... </h2>
-                )}
+                }
                 { habits.length == 1 &&  
                     <li className="text-2xl flex gap-3 my-6 items-center md:text-sml-2 md:my-2"> <img src = {iconArr[habits[0]]} className="w-8" /> {habitsData[habits[0]-1].name} </li>
                 }
@@ -49,7 +46,6 @@ export default function HabitsCard() {
                 }
                 { habits.length > 2 &&
                     <span className="text-xl mt-auto text-slate-500 mb-2 md:text-sm"> + {habits.length-2} habits more...  </span>
-
                 }
             </div>
         </section>

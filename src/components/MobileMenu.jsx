@@ -5,7 +5,6 @@ import habitsPic from '../images/habits-pic.png';
 import goalsPic from '../images/goals-pic.png';
 import eventsPic from '../images/events-pic.png';
 import moneyPic from '../images/money-pic.png'
-import emailPic from '../images/email-pic.png';
 import closePic from '../images/close (5).png'
 import { Link } from "react-router-dom";
 

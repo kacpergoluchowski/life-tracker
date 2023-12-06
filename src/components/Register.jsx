@@ -1,13 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { useSpring } from "react-spring";
 import '../index.css';
-import fbPic from '../images/fb-pic.png';
-import googlePic from '../images/google-pic.png';
-import applePic from '../images/apple-pic.png';
-import { Link, Navigate } from "react-router-dom";
 import Logo from "./Logo";
 import loginPic from '../images/login-pic.png';
-import Message from "./Message";
 import RegisterCard from "./RegisterCard";
 
 export default function Register() {

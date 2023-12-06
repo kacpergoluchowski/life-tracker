@@ -1,19 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../index.css';
 import addActivities from "../utilities/addActivities";
 
 export default function ActivityCard(props) {
     const [addActivityResponse, setAddActivityResponse] = useState({ success: false , error: null })
-    const [messageVisible, setMessageVisible] = useState(false);
 
     const handleAddActivity = () => {
         addActivities(props.data.id, props.type)
-          .then(response => {
-            setAddActivityResponse(response);
-          });
-      };
+            .then(response => { setAddActivityResponse(response) });
+    };
 
-      useEffect(() => {
+    useEffect(() => {
         if(addActivityResponse.success)
             props.setVisible();
     }, [addActivityResponse]);

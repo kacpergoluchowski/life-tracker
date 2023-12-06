@@ -5,7 +5,7 @@ import menuPic from '../images/menu-pic.png';
 import MobileMenu from "./MobileMenu";
 import { Link } from "react-router-dom";
 
-export default function Logo(props) {
+export default function Logo() {
     const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
 
     const handleMenuBtn = () => {

@@ -12,8 +12,3 @@ export default function EventsCard() {
         </section>
     )
 }
-
-{/* <ul className="mt-5"> 
-    <li className="text-2xl flex gap-3 my-6 items-center md:text-sml-1 md:my-1"> <img src = {calendarPic} className="w-8" /> Job interviev </li>
-    <li className="text-2xl flex gap-3 my-6 items-center md:text-sml-1 md:my-1"> <img src = {calendarPic} className="w-8" /> Family meet </li>
-</ul> */}
