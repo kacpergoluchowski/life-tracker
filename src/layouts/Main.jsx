@@ -10,6 +10,8 @@ import ActivitiesContext from "../contexts/ActivitiesContext";
 
 export default function Main() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const mainVisibility = localStorage.getItem('nickname') || false;
+    const [activitiesData, setActivitiesData] = useState(null)
 
     useEffect(() => {
         const handleResize = () => {
@@ -18,50 +20,6 @@ export default function Main() {
 
         window.addEventListener('resize', handleResize);
     }, []);
-
-    return (
-        <>
-        { windowWidth > 1525 && (
-            <DesktopViev />
-        )}
-        { windowWidth <= 769 && (
-            <MobileViev />
-        )}
-        </>
-    )
-}
-
-const MobileViev = () => {
-    const mainVisibility = localStorage.getItem('nickname') || false;
-    const [activitiesData, setActivitiesData] = useState(null)
-    
-    useEffect(() => {
-        getActivities()
-           .then((data) => { setActivitiesData(data); })
-            .catch((err) => {
-                console.log(err)
-            });
-      }, []); 
-
-    return (
-        <ActivitiesContext.Provider value = {activitiesData}>
-            <main className="md:flex md:flex-wrap md:w-full md:gap-1 md:ml-0">
-                    <HabitsCard />
-                    <GoalsCard />
-                    <StatsCard />
-                    <EventsCard />
-                    <NotesCard />
-            </main>
-            { !activitiesData && (
-                <h1> LOADING </h1>
-            )}
-        </ActivitiesContext.Provider>
-    )
-}
-
-const DesktopViev = () => {
-    const mainVisibility = localStorage.getItem('nickname') || false;
-    const [activitiesData, setActivitiesData] = useState(null)
     
     useEffect(() => {
         if(localStorage.getItem('nickname'))
@@ -74,8 +32,39 @@ const DesktopViev = () => {
 
     return (
         <ActivitiesContext.Provider value = {activitiesData}>
-            { !mainVisibility && <h1 className="font-Tsukimi m-auto text-6xl"> Login to access your bookmarks... </h1> }
-            { mainVisibility && activitiesData && (
+        { windowWidth > 1525 && (
+            <DesktopViev mainVisibility = {mainVisibility} activitiesData = {activitiesData}/>
+        )}
+        { windowWidth <= 769 && (
+            <MobileViev activitiesData = {activitiesData}/>
+        )}
+        </ActivitiesContext.Provider>
+    )
+}
+
+const MobileViev = (props) => {
+    return (
+        <>
+            <main className="md:flex md:flex-wrap md:w-full md:gap-1 md:ml-0">
+                    <HabitsCard />
+                    <GoalsCard />
+                    <StatsCard />
+                    <EventsCard />
+                    <NotesCard />
+            </main>
+            { !props.activitiesData && (
+                <h1> LOADING </h1>
+            )}
+        </>
+            
+    )
+}
+
+const DesktopViev = (props) => {
+    return (
+        <>
+            { !props.mainVisibility && <h1 className="font-Tsukimi m-auto text-6xl"> Login to access your bookmarks... </h1> }
+            { props.mainVisibility && props.activitiesData && (
                 <main className="ml-5 w-4/5 flex justify-around gap-4 flex-wrap">
                 <HabitsCard />
                 <StatsCard />
@@ -84,10 +73,9 @@ const DesktopViev = () => {
                 <EventsCard />
                 </main>
             )}
-            { !activitiesData && (
+            { !props.activitiesData && (
                 <h1> LOADING </h1>
             )}
-        </ActivitiesContext.Provider>
-        
+        </>
     )
 }
