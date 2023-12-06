@@ -158,8 +158,8 @@ app.post("/loginUser", async (req, res) => {
 app.post("/addActivities", async (req, res) => {
   const db = mongoose.connection.db;
   let activityModel;
-  if(mongoose.modelNames().includes('ActivityModel')) {
-    activityModel = mongoose.model('ActivityModel');
+  if (mongoose.modelNames().includes("ActivityModel")) {
+    activityModel = mongoose.model("ActivityModel");
   } else {
     var activitySchema = mongoose.Schema({
       id: Number,
@@ -167,7 +167,11 @@ app.post("/addActivities", async (req, res) => {
     });
   }
 
-  activityModel = mongoose.model('ActivityModel', activitySchema, req.body.nickname)
+  activityModel = mongoose.model(
+    "ActivityModel",
+    activitySchema,
+    req.body.nickname
+  );
 
   const newActivity = [
     {
@@ -180,16 +184,56 @@ app.post("/addActivities", async (req, res) => {
     activityModel.create(newActivity);
     res.status(201).json({
       success: true,
-      message: 'activity added!'
-    })
-  } catch(err) {
-    console.log(err)
+      message: "activity added!",
+    });
+  } catch (err) {
+    console.log(err);
     res.status(201).json({
       success: false,
-      message: 'error: ', err
-    })
+      message: "error: ",
+      err,
+    });
   }
 });
+
+app.post("/getActivities", async (req, res) => {
+  let User;
+  let collectionName = req.body.nickname
+
+  try {
+    User = mongoose.model(collectionName);
+  } catch (error) {
+    const userSchema = new mongoose.Schema(
+      {
+        email: String,
+        nickname: String,
+        password: String,
+      },
+      {
+        collection: collectionName,
+      }
+    );
+
+    User = mongoose.model(collectionName, userSchema);
+  }
+
+  try {
+    const activities = await User.find({});
+    res.status(201).json({
+      success: true,
+      content: activities
+    })
+  } catch(err) {
+    console.log(err);
+  }
+
+});
+
+
+
+
+
+
 
 
 
