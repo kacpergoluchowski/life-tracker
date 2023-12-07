@@ -3,6 +3,7 @@ import Header from "../layouts/Header";
 import HabitsList from "../layouts/HabitsList";
 import UserHabits from "../layouts/UserHabits";
 import Logo from "../components/Logo";
+import BlockAccess from "../components/BlockAccess";
 
 export default function HabitsPage() {
     const [habitsListVisible, setHabitsListVisible] = useState(true);
@@ -19,18 +20,24 @@ export default function HabitsPage() {
     }
 
     return (
-        <div className="bg-blue-100 shadow-lg shadow-gray-800/100 w-11/12 h-wrapper-height rounded-3xl px-5 py-3 md:px-2 md:mt-0 md:h-min">
-            <Logo />
-            <div className="flex justify-center gap-x-6 mt-10">
-                <button className="bg-blue-400 w-1/5 h-12 text-3xl font-Tsukimi rounded-3xl text-white md:w-2/5 md:text-xl" onClick={item => showHabitsList(item)}> Habits List </button>
-                <button className="bg-blue-400 w-1/5 h-12 text-3xl font-Tsukimi rounded-3xl text-white md:w-2/5 md:text-xl" onClick={item => showUserHabits(item)}> Your habits </button>
-            </div>
-            { habitsListVisible && (
-                <HabitsList />
-            )}
-            { userHabitsVisible && (
-                <UserHabits />
-            )}
+        <div className="bg-blue-100 shadow-lg shadow-gray-800/100 w-11/12 h-wrapper-height rounded-3xl px-5 py-3 md:px-2 md:mt-0 md:h-min desktop:overflow-hidden">
+            <Header />
+            { localStorage.getItem('nickname') && 
+            <>
+                <div className="flex justify-center gap-x-6 md:mt-10">
+                    <button className="bg-blue-400 w-1/5 h-12 text-3xl font-Tsukimi rounded-3xl text-white md:w-2/5 md:text-xl" onClick={item => showHabitsList(item)}> Habits List </button>
+                    <button className="bg-blue-400 w-1/5 h-12 text-3xl font-Tsukimi rounded-3xl text-white md:w-2/5 md:text-xl" onClick={item => showUserHabits(item)}> Your habits </button>
+                </div>
+                { habitsListVisible && (
+                    <HabitsList />
+                )}
+                { userHabitsVisible && (
+                    <UserHabits />
+                )}
+            </>
+            }
+            { !localStorage.getItem('nickname') && <BlockAccess /> }
+            
         </div>
     )
 }

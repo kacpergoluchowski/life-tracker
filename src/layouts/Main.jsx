@@ -7,10 +7,11 @@ import EventsCard from "../components/Events";
 import NotesCard from "../components/Notes";
 import getActivities from "../utilities/getActivities";
 import ActivitiesContext from "../contexts/ActivitiesContext";
+import BlockAccess from "../components/BlockAccess";
+import Loader from "../components/Loader";
 
 export default function Main() {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    const mainVisibility = localStorage.getItem('nickname') || false;
     const [activitiesData, setActivitiesData] = useState(null)
 
     useEffect(() => {
@@ -33,10 +34,10 @@ export default function Main() {
     return (
         <ActivitiesContext.Provider value = {activitiesData}>
         { windowWidth > 1525 && (
-            <DesktopViev mainVisibility = {mainVisibility} activitiesData = {activitiesData}/>
+            <DesktopViev activitiesData = {activitiesData}/>
         )}
         { windowWidth <= 1023 && (
-            <MobileViev mainVisibility = {mainVisibility} activitiesData = {activitiesData}/>
+            <MobileViev activitiesData = {activitiesData}/>
         )}
         </ActivitiesContext.Provider>
     )
@@ -45,8 +46,8 @@ export default function Main() {
 const MobileViev = (props) => {
     return (
         <>
-            { !props.mainVisibility && <h1 className="font-Tsukimi m-auto text-6xl"> Login to access your bookmarks... </h1> }
-            { props.mainVisibility && props.activitiesData && (
+            { !localStorage.getItem('nickname') && <BlockAccess /> }
+            { localStorage.getItem('nickname') && props.activitiesData && (
             <main className="w-full flex flex-wrap justify-between gap-y-1 mt-3">
                 <HabitsCard />
                 <GoalsCard />
@@ -55,8 +56,8 @@ const MobileViev = (props) => {
                 <EventsCard />
             </main>
             )}
-            { !props.activitiesData && (
-                <h1> LOADING </h1>
+            { !props.activitiesData && localStorage.getItem('nickname') && (
+                <Loader />
             )}
         </>  
     )
@@ -65,8 +66,8 @@ const MobileViev = (props) => {
 const DesktopViev = (props) => {
     return (
         <>
-            { !props.mainVisibility && <h1 className="font-Tsukimi m-auto text-6xl"> Login to access your bookmarks... </h1> }
-            { props.mainVisibility && props.activitiesData && (
+            { !localStorage.getItem('nickname') && <BlockAccess /> }
+            { localStorage.getItem('nickname') && props.activitiesData && (
                 <main className="ml-5 w-4/5 flex justify-around gap-4 flex-wrap">
                 <HabitsCard />
                 <StatsCard />
@@ -75,8 +76,8 @@ const DesktopViev = (props) => {
                 <EventsCard />
                 </main>
             )}
-            { !props.activitiesData && (
-                <h1> LOADING </h1>
+            { !props.activitiesData && localStorage.getItem('nickname') && (
+                <Loader />
             )}
         </>
     )

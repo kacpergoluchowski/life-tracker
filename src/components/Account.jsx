@@ -14,7 +14,7 @@ export default function Account() {
     }
     
     return (
-        <section className="w-1/6 flex items-center justify-end gap-4 mr-20 md:w-full md:justify-start md:pl-4 md:py-5">
+        <section className="relative w-1/6 flex items-center justify-end gap-4 mr-20 md:w-full md:justify-start md:pl-4 md:py-5">
             <img src = {guestPic} />
             <div className="h-4/5 flex flex-col justify-center gap-y-2">
                 <h1 className="text-3xl"> {userNickname} </h1>
@@ -29,13 +29,27 @@ export default function Account() {
 
 
 function AccountOptions({ setVisible }) {
+    function logoutUser() {
+        const shouldLogout = window.confirm('czy na pewno chcesz się wylogować?')        
+
+        if(shouldLogout) {
+            localStorage.removeItem('nickname');
+            window.location.reload();
+        }
+    }
 
     return (
-        <section className="absolute top-0 right-0 bg-black/70 w-1/4 h-screen flex text-white items-center justify-center text-center text-6xl md:w-4/5 md:text-5xl md:fixed ">
-            <img src = {closePic} className="absolute right-10 top-10 w-20 cursor-pointer " onClick={() => setVisible()}/>
-            <ul> 
-                <Link to='/login'> <li className="py-5"> LOGIN </li> </Link>
-                <Link to='/register'> <li className="py-5"> REGISTER </li> </Link>
+        <section className="absolute bg-black/60 top-28 left-10 w-full h-32 flex p-2 rounded-xl md:w-72 md:left-4">
+            <ul className="font-Tsukimi flex flex-col justify-center"> 
+            { !localStorage.getItem('nickname') &&
+            <>
+                <Link to='/login'> <li className="py-1 text-white text-3xl"> LOGIN </li> </Link>
+                <div className="border w-64 my-2"></div>
+                <Link to='/register'> <li className="py-1 text-white text-3xl"> REGISTER </li> </Link>
+            </>}
+            { localStorage.getItem('nickname') && 
+                <button className="text-red-400 text-3xl ml-4" onClick={logoutUser}> LOGOUT </button>
+            }
             </ul>
         </section>
     )

@@ -20,6 +20,7 @@ import thought from '../images/thought 1.png'
 import friendship from '../images/friendship 1.png'
 import getActivities from "../utilities/getActivities";
 import findActivities from "../utilities/findActivities";
+import Loader from "../components/Loader";
 
 export default function UserHabits() {
     const iconArr = [goodMorning, timePlanning, diet, read, thoughts, newSkill, rest, multitasking, gratitude, shield, procrastination, drinkingWater, meditation, thought, friendship];
@@ -67,6 +68,7 @@ export default function UserHabits() {
                 )
             })
         )}
+        { !habitsVisible && <Loader /> }
         </div>
         
     )
