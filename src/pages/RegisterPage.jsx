@@ -1,8 +1,6 @@
 import React from "react";
 import '../index.css';
 import Logo from "../components/Logo";
-import Login from "../components/Login";
-import loginPic from '../images/login-pic.png';
 import Register from "../components/Register";
 
 export default function RegisterPage() {

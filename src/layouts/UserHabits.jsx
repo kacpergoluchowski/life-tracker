@@ -59,7 +59,7 @@ export default function UserHabits() {
     }, 1000);
 
     return (
-        <div className="flex flex-wrap gap-x-3 gap-y-3 h-med-1 overflow-y-auto mt-5 px-2 md: justify-center">
+        <div className="flex flex-wrap gap-x-3 gap-y-3 h-screen overflow-y-auto mt-5 px-2 md:justify-center">
         { habitsVisible && (
             habits.map(habit => {
                 return (

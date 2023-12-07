@@ -28,7 +28,7 @@ export default function ActivityCard(props) {
                 <li className="font-Tsukimi"> {props.data.adventage2} </li>
                 <li className="font-Tsukimi"> {props.data.adventage3} </li>    
             </ul>
-            <button className="bg-blue-400 mt-3 text-sm px-5 py-1 rounded-3xl w-1/3 ml-auto" onClick={handleAddActivity}> Add {props.type} </button>            
+            <button className="bg-blue-400 mt-3 text-sm px-5 py-1 rounded-3xl w-1/3 ml-auto md:w-2/5" onClick={handleAddActivity}> Add {props.type} </button>            
         </div>
     )
 }

@@ -35,7 +35,7 @@ export default function Main() {
         { windowWidth > 1525 && (
             <DesktopViev mainVisibility = {mainVisibility} activitiesData = {activitiesData}/>
         )}
-        { windowWidth <= 769 && (
+        { windowWidth <= 1023 && (
             <MobileViev mainVisibility = {mainVisibility} activitiesData = {activitiesData}/>
         )}
         </ActivitiesContext.Provider>
