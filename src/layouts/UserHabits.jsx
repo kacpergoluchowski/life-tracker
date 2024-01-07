@@ -39,7 +39,7 @@ export default function UserHabits() {
       }, []); 
 
     useEffect(() => {
-        setHabits(findActivities(activitiesData))
+        setHabits(findActivities('habit', activitiesData))
     }, [activitiesData])
 
     useEffect(() => {

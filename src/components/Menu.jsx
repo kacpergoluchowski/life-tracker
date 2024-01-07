@@ -14,7 +14,7 @@ export default function Menu() {
                 <div>
                     <li className="flex my-5 gap-5 cursor-pointer hover:bg-blue-300 px-5 py-2 rounded-3xl"> <img src = {dashboardPic} className="w-9 h-9"/> Dashboard </li>
                     <Link to = '/habits'> <li className="flex my-5 gap-5 cursor-pointer hover:bg-blue-300 px-5 py-2 rounded-3xl"> <img src = {habitsPic} className="w-9 h-9"/> Habits </li> </Link>
-                    <li className="flex my-5 gap-5 cursor-pointer hover:bg-blue-300 px-5 py-2 rounded-3xl"> <img src = {goalsPic} className="w-9 h-9"/> Goals </li>
+                    <Link to = '/goals'> <li className="flex my-5 gap-5 cursor-pointer hover:bg-blue-300 px-5 py-2 rounded-3xl"> <img src = {goalsPic} className="w-9 h-9"/> Goals </li> </Link>
                     <li className="flex my-5 gap-5 cursor-pointer hover:bg-blue-300 px-5 py-2 rounded-3xl"> <img src = {eventsPic} className="w-9 h-9"/> Events </li>
                     <li className="flex my-5 gap-5 cursor-pointer hover:bg-blue-300 px-5 py-2 rounded-3xl"> <img src = {moneyPic} className="w-9 h-9"/> Money </li>
                 </div>

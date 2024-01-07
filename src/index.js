@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage';
 import Register from './components/Register';
 import RegisterPage from './pages/RegisterPage';
 import HabitsPage from './pages/HabitsPage';
+import GoalsPage from './pages/GoalsPage';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
   { 
     path: "/habits",
     element: <HabitsPage />
+  },
+  {
+    path: "/goals",
+    element: <GoalsPage />
   }
 ])
 

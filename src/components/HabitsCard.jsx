@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import '../index.css';
 import ActivitiesContext from '../contexts/ActivitiesContext'
+
 import habitsData from '../data/habitsData.json';
 import findActivities from "../utilities/findActivities";
 import goodMorning from '../images/good-morning 1.png';
@@ -25,7 +26,7 @@ export default function HabitsCard() {
     const iconArr = [goodMorning, timePlanning, diet, read, thoughts, newSkill, rest, multitasking, gratitude, shield, procrastination, drinkingWater, meditation, thought, friendship];
 
     useEffect(() => {
-        setHabits(findActivities(activitiesData));
+        setHabits(findActivities('habit', activitiesData));
     }, [])
 
     return (

@@ -1,9 +1,9 @@
-export default function findActivities(activitiesArray) {
+export default function findActivities(type, activitiesArray) {
     let activities = [];
 
     if(activitiesArray)
         activitiesArray.content.forEach(activity => {
-            if(activity.type === 'habit')
+            if(activity.type === type)
                 activities.push(activity.id);
         });
         
